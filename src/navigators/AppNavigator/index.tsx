@@ -2,8 +2,6 @@ import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import {LoginPage, RegisterPage} from '../../pages/mainPages';
 
-const AppNavigatorStack = createStackNavigator();
-
 export enum AppNavigatorPagesAndStacks {
   Login = 'Login',
   Register = 'Register',
@@ -14,7 +12,9 @@ export type AppNavigatorParamList = {
   Register: undefined;
 };
 
-const AppNavigator: React.FunctionComponent<AppNavigatorParamList> = () => {
+const AppNavigatorStack = createStackNavigator<AppNavigatorParamList>();
+
+const AppNavigator: React.FunctionComponent = () => {
   return (
     <AppNavigatorStack.Navigator initialRouteName={'Register'}>
       <AppNavigatorStack.Screen
